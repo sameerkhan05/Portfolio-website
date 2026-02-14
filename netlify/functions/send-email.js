@@ -1,6 +1,8 @@
 const nodemailer = require('nodemailer');
 
 exports.handler = async (event) => {
+    console.log('Function invoked - Method:', event.httpMethod);
+
     // Only allow POST requests
     if (event.httpMethod !== 'POST') {
         return {
@@ -11,8 +13,14 @@ exports.handler = async (event) => {
 
     try {
         const { name, email, subject, message } = JSON.parse(event.body);
+        console.log('Parsed form data:', { name, email, subject });
+
+        // Check if env variables exist
+        console.log('EMAIL_USER exists:', !!process.env.EMAIL_USER);
+        console.log('EMAIL_PASS exists:', !!process.env.EMAIL_PASS);
 
         // Create transporter
+        console.log('Creating nodemailer transporter...');
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -37,7 +45,9 @@ exports.handler = async (event) => {
         };
 
         // Send email
-        await transporter.sendMail(mailOptions);
+        console.log('Attempting to send email...');
+        const info = await transporter.sendMail(mailOptions);
+        console.log('Email sent successfully! Message ID:', info.messageId);
 
         return {
             statusCode: 200,
@@ -52,7 +62,8 @@ exports.handler = async (event) => {
         };
 
     } catch (error) {
-        console.error('Error sending email:', error);
+        console.error('ERROR sending email:', error.message);
+        console.error('Full error:', error);
         return {
             statusCode: 500,
             headers: {
@@ -60,7 +71,8 @@ exports.handler = async (event) => {
             },
             body: JSON.stringify({
                 success: false,
-                message: 'Failed to send email'
+                message: 'Failed to send email',
+                error: error.message
             })
         };
     }
