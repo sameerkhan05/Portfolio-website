@@ -1,8 +1,169 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root{
-  font-family: "Inter",sans-serif;
+@layer base {
+  :root {
+    /* Default Dark Mode (System Monitor) */
+    --bg-primary: #010409;
+    --bg-secondary: #0d1117;
+    --bg-tertiary: #161b22;
+    --border-color: #30363d;
+    --text-primary: #c9d1d9;
+    --text-secondary: #8b949e;
+    --accent-color: #f97316;
+    /* Orange */
+    --accent-glow: rgba(249, 115, 22, 0.2);
+    --success-color: #238636;
+    --error-color: #da3633;
+    --font-mono: 'JetBrains Mono', monospace;
+    --heatmap-empty: #2d333b;
+    --heatmap-1: #0e4429;
+    --heatmap-2: #006d32;
+    --heatmap-3: #26a641;
+    --heatmap-4: #39d353;
+
+    /* Terminal Color */
+    --terminal-color: #22c55e;
+    /* Green-500 */
+
+    /* Scrollbar - Dark Mode Default */
+    --scrollbar-track: #0d1117;
+    --scrollbar-thumb: #30363d;
+    --scrollbar-thumb-hover: #484f58;
+
+    /* Code Syntax Colors (Dark Mode - based on VS Code Dark Plus) */
+    --code-key: #9cdcfe;
+    /* Light Blue */
+    --code-string: #ce9178;
+    /* Orange */
+    --code-brace: #ffd700;
+    /* Gold */
+
+    /* Toast Colors (Dark Mode) */
+    --toast-bg: #1e1e1e;
+    --toast-text: #ffffff;
+    --toast-border: #333333;
+  }
+
+  [data-theme='light'] {
+    /* Light Mode (Day Mode Terminal) */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f6f8fa;
+    --bg-tertiary: #eaeef2;
+    --border-color: #d0d7de;
+    --text-primary: #24292f;
+    --text-secondary: #57606a;
+    --accent-color: #ec6547;
+    /* Burnt Orange */
+    --accent-glow: rgba(236, 101, 71, 0.15);
+    --success-color: #1a7f37;
+    --error-color: #cf222e;
+    --heatmap-empty: #ebedf0;
+    --heatmap-1: #9be9a8;
+    --heatmap-2: #40c463;
+    --heatmap-3: #30a14e;
+    --heatmap-4: #216e39;
+
+    /* Terminal Color - Light Mode (Postman Orange) */
+    --terminal-color: #ef5b25;
+
+    /* Scrollbar - Light Mode */
+    --scrollbar-track: #f6f8fa;
+    --scrollbar-thumb: #d0d7de;
+    --scrollbar-thumb-hover: #babbbd;
+
+    /* Code Syntax Colors (Light Mode - based on VS Code Light) */
+    --code-key: #001080;
+    /* Dark Blue */
+    --code-string: #a31515;
+    /* Red/Brown */
+    --code-brace: #000000;
+    /* Black */
+
+    /* Toast Colors (Light Mode) */
+    --toast-bg: #ffffff;
+    --toast-text: #24292f;
+    --toast-border: #d0d7de;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    @apply transition-colors duration-300;
+    margin: 0;
+    overflow: hidden;
+    /* App handles scrolling */
+  }
+}
+
+/* Custom Scrollbar - Hidden on Mobile for App Feel */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+/* Custom Scrollbar (Desktop Only) */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 5px;
+    border: 2px solid var(--scrollbar-track);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+}
+
+/* Syntax Highlighter Overrides */
+pre {
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Autofill Background Fix */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--code-string);
+  -webkit-box-shadow: 0 0 0px 1000px var(--bg-primary) inset;
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: var(--text-primary);
 }

@@ -1,82 +1,70 @@
+
 import project1 from "../assets/projects/project-1.png";
 import project2 from "../assets/projects/project-2.png";
 import project3 from "../assets/projects/project-3.png";
 import project4 from "../assets/projects/project-4.png";
 
-export const HERO_CONTENT = `I am a motivated aspiring full stack developer eager to build robust and scalable web applications. Though I'm new to the industry, I bring a deep enthusiasm for crafting seamless user experiences and a solid foundation in front-end technologies such as HTML, CSS, and JavaScript.
+export const HERO_CONTENT = `Java Backend Developer with 7+ months of hands-on industry experience in building scalable backend systems using Java, Spring Boot, REST APIs, and SQL. Experienced in high-volume data processing, microservices architecture, and performance optimization, with exposure to real-world fintech applications and UAT environments.`;
 
-My journey into web development has sparked a passion for learning modern frameworks like React and Next.js, where I'm excited to apply my creativity to develop intuitive interfaces. On the back-end, I'm gaining proficiency in Node.js and exploring databases like MySQL, PostgreSQL, and MongoDB to understand how data drives application functionality.
-
-As a fresher, my goal is to leverage my technical skills and eagerness to learn to contribute effectively to innovative projects. I am committed to delivering high-quality code and collaborating with teams to achieve business objectives. I look forward to bringing my fresh perspective and dedication to creating impactful solutions that drive business growth and enhance user satisfaction..`;
-
-export const ABOUT_TEXT = `I am a dedicated and versatile aspiring full stack developer with a strong passion for crafting efficient and user-friendly web applications. Currently pursuing my MCA degree with an expected passout in 2025, I am eager to apply my theoretical knowledge to practical projects.
-
-My journey into web development started with a deep curiosity about how things work, and it has grown into a career aspiration where I am committed to continuous learning and adapting to new challenges. I am familiarizing myself with technologies such as React, Express.js, Node.js, and various databases including MySQL, PostgreSQL, and MongoDB, aiming to build a strong technical foundation.
-
-I thrive in collaborative environments where I can contribute my problem-solving skills to deliver high-quality solutions. As a tech enthusiast, I actively explore new technologies and contribute to open-source projects to expand my knowledge and skills.
-
-Beyond coding, I enjoy staying active and engaging in activities that foster personal and professional growth. I am excited about the opportunity to bring my enthusiasm and dedication to a dynamic team, contributing to innovative projects that make a meaningful impact.`;
+export const ABOUT_TEXT = `Java Backend Developer with 7+ months of hands-on industry experience in building scalable backend systems using Java, Spring Boot, REST APIs, and SQL. Experienced in high-volume data processing, microservices architecture, and performance optimization, with exposure to real-world fintech applications and UAT environments.`;
 
 export const EXPERIENCES = [
   {
-    year: "2023 - Present",
-    role: "Senior Full Stack Developer",
-    company: "Google Inc.",
-    description: `Led a team in developing and maintaining web applications using JavaScript, React.js, and Node.js. Implemented RESTful APIs and integrated with MongoDB databases. Collaborated with stakeholders to define project requirements and timelines.`,
-    technologies: ["Javascript", "React.js", "Next.js", "mongoDB"],
+    year: "July 2025 - Present",
+    role: "Java Backend Developer",
+    company: "Paynext",
+    description: `Developing and maintaining backend applications using Java and Spring Boot in a fintech production environment. Designing and consuming RESTful APIs as part of modular, microservices-based systems. Developed a high-performance CSV file reading module capable of processing and inserting 500,000+ records within ~40 seconds. Applied Data Structures such as Binary Search and TreeMap to optimize data lookup. Integrated Hibernate/JPA with MySQL, focusing on query optimization.`,
+    technologies: ["Java", "Spring Boot", "Microservices", "MySQL", "Hibernate", "Redis", "Kafka"],
   },
   {
-    year: "2022 - 2023",
-    role: "Frontend Developer",
-    company: "Adobe",
-    description: `Designed and developed user interfaces for web applications using Next.js and React. Worked closely with backend developers to integrate frontend components with Node.js APIs. Implemented responsive designs and optimized frontend performance.`,
-    technologies: ["HTML", "CSS", "Vue.js", "mySQL"],
+    year: "2023 - 2025",
+    role: "Master of Computer Applications (MCA)",
+    company: "SAGE University, Indore",
+    description: `Specialized in Computer Applications. Built strong foundation in Advanced Java, Database Management Systems, and Software Engineering principles.`,
+    technologies: ["Java", "DBMS", "Software Engineering"],
   },
   {
-    year: "2021 - 2022",
-    role: "Full Stack Developer",
-    company: "Facebook",
-    description: `Developed and maintained web applications using JavaScript, React.js, and Node.js. Designed and implemented RESTful APIs for data communication. Collaborated with cross-functional teams to deliver high-quality software products on schedule.`,
-    technologies: ["Python", "Svelte", "Three.js", "Postgres"],
-  },
-  {
-    year: "2020 - 2021",
-    role: "Software Engineer",
-    company: "Paypal",
-    description: `Contributed to the development of web applications using JavaScript, React.js, and Node.js. Managed databases and implemented data storage solutions using MongoDB. Worked closely with product managers to prioritize features and enhancements.`,
-    technologies: ["Ruby", "Rails", "PHP", "Sqlite"],
-  },
+    year: "2019 - 2022",
+    role: "BCCA",
+    company: "GH Raisoni College, Nagpur",
+    description: `Bachelor of Commerce in Computer Application. Focused on core computer science subjects and commerce fundamentals.`,
+    technologies: ["C++", "Web Development", "Accounting"],
+  }
 ];
 
 export const PROJECTS = [
   {
-    title: "Node.js Backend Project",
-    image: project1,
-    description: "A comprehensive Node.js backend project implementing RESTful APIs and integrating with various databases.",
-    technologies: ["Node.js", "Express", "MongoDB"],
-  },
-  {
-    title: "Currency Converter",
-    image: project2,
-    description: "A React-based currency converter application that fetches real-time exchange rates using an external API.",
-    technologies: ["React", "API", "CSS"],
-  },
-  {
-    title: "ForgeNews",
+    title: "Optimistic & Pessimistic Locking",
     image: project3,
-    description: "A news aggregation platform built with React.js that fetches and displays news articles from various sources using APIs.",
-    technologies: ["React.js", "API", "CSS"],
+    description: "Demonstration of concurrency control mechanisms in database transactions to handle race conditions effectively using Spring Boot and JPA.",
+    technologies: ["Java", "Spring Boot", "JPA", "MySQL"],
+    link: "https://github.com/sameerkhan05/Optimistic-and-Pessimistic-locking"
   },
   {
-    title: "Portfolio Website",
-    image: project4,
-    description: "A personal portfolio website showcasing projects, skills, and contact information, built using React.js, Tailwind CSS, and Framer Motion.",
-    technologies: ["React.js", "Tailwind CSS", "Framer Motion"],
+    title: "Blog-Web-App-Backend",
+    image: project1,
+    description: "Developed APIs for creating, managing, and viewing blog posts with categories. Implemented user authentication and role-based access control using Spring Security and JWT.",
+    technologies: ["Java", "Spring Boot", "Spring Security", "Hibernate", "MySQL"],
+    link: "https://github.com/sameerkhan05/Blog-Web-App-Backend"
   },
+  {
+    title: "Personal Trac",
+    image: project2,
+    description: "Robust Spring Boot application implementing CRUD operations for efficient departmental and personal data management. Utilized MVC architecture and RESTful API design.",
+    technologies: ["Spring Boot", "MVC", "REST API", "CRUD"],
+    link: "https://github.com/sameerkhan05/DepartmentCRUD"
+  },
+  {
+    title: "Convo Box",
+    image: project4,
+    description: "Real-time chat application enabling seamless communication. Features user authentication, room management, and instant messaging capabilities.",
+    technologies: ["React.js", "Node.js", "Socket.io", "Tailwind CSS"],
+    link: "https://github.com/sameerkhan05/Chat-Application"
+  }
 ];
 
 export const CONTACT = {
-  address: "Camp Pune Maharashtra, 411001",
-  phoneNo: "Contact : +91 7000646093",
+  address: "India",
+  phoneNo: "+91 7000646093",
   email: "sameerkhanyt09@gmail.com",
 };
