@@ -56,7 +56,8 @@ const ContactForm = () => {
         const toastId = toast.loading('Establishing connection...');
 
         try {
-            const fetchResponse = await fetch('http://localhost:5002/send-email', {
+            // Use Netlify Function endpoint
+            const fetchResponse = await fetch('/.netlify/functions/send-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
@@ -69,11 +70,11 @@ const ContactForm = () => {
                 const successData = {
                     status: 200,
                     message: "Message dispatched successfully.",
-                    id: result.id,
+                    id: Date.now().toString(),
                     timestamp: new Date().toISOString()
                 };
                 setLastResponse(successData);
-                toast.success(`Message Sent! ID: ${result.id}`, { id: toastId });
+                toast.success('Message sent successfully!', { id: toastId });
                 setFormData({ name: '', email: '', subject: '', message: '' }); // Reset form
             } else {
                 setStatus('error');
