@@ -93,7 +93,7 @@ const App = () => {
                   </section>
 
                   <footer className="py-8 text-center text-[var(--text-secondary)] text-sm font-mono border-t border-[var(--border-color)] mb-16 md:mb-0">
-                    <p>System Status: ONLINE | 2.01</p>
+                    <p>System Status: ONLINE | v2.0.1</p>
                     <p className="mt-2 opacity-50">&copy; {new Date().getFullYear()} Sameer Khan. All rights reserved.</p>
                   </footer>
                 </div>

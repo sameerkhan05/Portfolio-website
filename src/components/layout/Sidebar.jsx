@@ -33,7 +33,7 @@ const Sidebar = () => {
                     <Terminal size={20} className="text-[var(--accent-color)]" />
                     <h1 className="font-bold font-mono tracking-tighter">PORTFOLIO.OS</h1>
                 </div>
-                <p className="text-[10px] text-[var(--text-secondary)] font-mono uppercase">v6.1.0-release</p>
+                <p className="text-[10px] text-[var(--text-secondary)] font-mono uppercase">v2.0.1</p>
             </div>
 
             {/* Modules */}
