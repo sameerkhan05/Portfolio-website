@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, ChevronRight, Download, ArrowRight, Server, Cpu } from 'lucide-react';
+import { Terminal, ChevronRight, Play, ArrowRight, Server, Cpu } from 'lucide-react';
 import { HERO_CONTENT } from '../../constants';
 import VisitorBadge from './VisitorBadge';
+import Journey from './Journey';
 
 const Hero = () => {
     const [text, setText] = useState('');
     const fullText = ">> initializing_system...\n>> loading_user_profile...\n>> mount_subject: Sameer Khan\n>> status: ONLINE";
     const [showContent, setShowContent] = useState(false);
+    const [showJourney, setShowJourney] = useState(false);
 
     useEffect(() => {
         let i = 0;
@@ -93,14 +95,20 @@ const Hero = () => {
                                 <ArrowRight size={14} md:size={16} className="group-hover:translate-x-1 transition-transform" />
                             </button>
 
-                            <button className="border border-[var(--border-color)] text-[var(--text-secondary)] px-4 py-2 md:px-6 md:py-3 text-sm md:text-base font-mono flex items-center gap-2 hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] transition-all">
-                                <Download size={14} md:size={18} />
-                                cv.pdf
+                            <button
+                                onClick={() => setShowJourney(true)}
+                                className="border border-[var(--border-color)] text-[var(--text-secondary)] px-4 py-2 md:px-6 md:py-3 text-sm md:text-base font-mono flex items-center gap-2 hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] transition-all"
+                            >
+                                <Play size={14} md:size={18} />
+                                open_journey.exe
                             </button>
                         </div>
                     </motion.div>
                 </div>
             </div>
+
+            {/* Journey Modal */}
+            <Journey isOpen={showJourney} onClose={() => setShowJourney(false)} />
         </div>
     );
 };
