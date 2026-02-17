@@ -41,9 +41,6 @@ const LeetCodeHeatmap = ({ submissionCalendar }) => {
         for (let i = 0; i < 12; i++) {
             const currentMonth = new Date(startReference.getFullYear(), startReference.getMonth() + i, 1);
 
-            // Skip future months to avoid empty space
-            if (currentMonth > today) continue;
-
             const m = currentMonth.getMonth();
             const y = currentMonth.getFullYear();
 
