@@ -12,6 +12,9 @@ const LeetCodeHeatmap = ({ submissionCalendar }) => {
         if (submissionCalendar) {
             Object.entries(submissionCalendar).forEach(([timestamp, count]) => {
                 const date = new Date(parseInt(timestamp) * 1000);
+                // Explicitly filter out 2023 and earlier
+                if (date.getFullYear() < 2024) return;
+
                 const dateStr = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
                 history.push({ date: dateStr, count });
             });

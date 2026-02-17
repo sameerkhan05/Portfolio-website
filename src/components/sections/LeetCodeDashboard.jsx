@@ -12,11 +12,27 @@ const LeetCodeDashboard = () => {
         const fetchStats = async () => {
             try {
                 // Using a public proxy for LeetCode stats
-                const response = await axios.get('https://leetcode-stats-api.herokuapp.com/sameerkhanyt09');
-                if (response.data.status === 'error') {
-                    throw new Error(response.data.message);
+                const response = await axios.get('https://leetcode-api-faisalshohag.vercel.app/sameerkhanyt09');
+                if (response.data.errors) {
+                    throw new Error(response.data.errors[0].message);
                 }
-                setStats(response.data);
+
+                // Filter submission data to only show recent years (2024+)
+                // This prevents old data from 2023 causing display issues if the heatmap component doesn't handle it
+                const rawCalendar = response.data.submissionCalendar || {};
+                const filteredCalendar = {};
+                const start2024 = new Date('2024-01-01').getTime() / 1000;
+
+                Object.keys(rawCalendar).forEach(timestamp => {
+                    if (Number(timestamp) >= start2024) {
+                        filteredCalendar[timestamp] = rawCalendar[timestamp];
+                    }
+                });
+
+                setStats({
+                    ...response.data,
+                    submissionCalendar: filteredCalendar
+                });
             } catch (err) {
                 console.error("Failed to fetch LeetCode stats:", err);
                 // Fallback mock data
@@ -31,33 +47,12 @@ const LeetCodeDashboard = () => {
                     totalHard: 800,
                     acceptanceRate: 68.5,
                     ranking: 12403,
-                    status: 'fallback',
-                    submissionCalendar: generateMockSubmissionCalendar()
+                    status: 'fallback'
                 });
                 setError(true);
             } finally {
                 setLoading(false);
             }
-        };
-
-        const generateMockSubmissionCalendar = () => {
-            const calendar = {};
-            const today = new Date();
-            // Generate valid data for past 365 days
-            for (let i = 0; i < 365; i++) {
-                const date = new Date(today);
-                date.setDate(date.getDate() - i);
-
-                // Randomize: 60% chance of 0, else 1-5 submissions
-                // Higher chance on weekends? Maybe just simple random for now
-                const rand = Math.random();
-                if (rand > 0.6) {
-                    // Create timestamp in seconds
-                    const timestamp = Math.floor(date.getTime() / 1000);
-                    calendar[timestamp] = Math.ceil(Math.random() * 5);
-                }
-            }
-            return calendar;
         };
 
         fetchStats();
