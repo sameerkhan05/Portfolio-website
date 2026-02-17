@@ -99,33 +99,6 @@ const LeetCodeHeatmap = ({ submissionCalendar }) => {
             };
         }
 
-        // 2. Fallback / Decorative Logic (only if no real data found)
-        // Strict Data Logic: Jan 11 - Feb 13 2026
-        const isTargetYear = year === 2026 || (selectedYear === 'Current' && (month === 0 || month === 1));
-
-        if (isTargetYear) {
-            // Deterministic "random" based on date to keep it stable
-            const deterministicRandom = (day * 3 + month * 7 + year) % 10;
-
-            if (month === 0) { // Jan
-                if (day === 18) return { count: 0, intensity: 0 };
-                if (day >= 11) {
-                    // Logic: 30% chance of 0, else 1-4
-                    if (deterministicRandom < 3) return { count: 0, intensity: 0 };
-                    const count = (deterministicRandom % 4) + 1;
-                    return { count, intensity: count };
-                }
-            }
-            if (month === 1) { // Feb
-                if (day <= 13) {
-                    // Logic: 30% chance of 0, else 1-4
-                    if (deterministicRandom < 3) return { count: 0, intensity: 0 };
-                    const count = (deterministicRandom % 4) + 1;
-                    return { count, intensity: count };
-                }
-            }
-        }
-
         return { count: 0, intensity: 0 }; // Empty
     };
 
