@@ -284,7 +284,7 @@ const LeetCodeDashboard = () => {
             </div>
 
             {/* Heatmap Section */}
-            <div className="bg-[var(--bg-secondary)] border border-[var(--border-color)] p-4 md:p-6 rounded-lg overflow-hidden">
+            <div className="bg-[var(--bg-secondary)] border border-[var(--border-color)] p-4 md:p-6 rounded-lg">
                 <h3 className="text-[10px] md:text-xs text-[var(--text-secondary)] font-mono uppercase mb-4 md:mb-6 flex items-center gap-2">
                     <Activity size={12} md:size={14} /> Submission Activity Scan
                 </h3>

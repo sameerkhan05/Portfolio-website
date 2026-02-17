@@ -138,7 +138,7 @@ const LeetCodeHeatmap = ({ submissionCalendar }) => {
                 </div>
 
                 {/* Dropdown */}
-                <div className="relative z-30">
+                <div className="relative z-50">
                     <button
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                         className="flex items-center gap-1 text-[10px] font-mono bg-[var(--bg-tertiary)] px-2 py-1 rounded text-[var(--text-primary)] border border-transparent hover:border-[var(--border-color)] hover:bg-[var(--bg-secondary)]"
@@ -146,7 +146,7 @@ const LeetCodeHeatmap = ({ submissionCalendar }) => {
                         {selectedYear} <ChevronDown size={10} className={`transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
                     </button>
                     {isDropdownOpen && (
-                        <div className="absolute right-0 top-full mt-1 w-24 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-md shadow-lg z-40">
+                        <div className="absolute right-0 top-full mt-1 w-24 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-md shadow-lg z-[60]">
                             {['Current', '2026', '2025'].map(year => (
                                 <button
                                     key={year}
@@ -164,7 +164,7 @@ const LeetCodeHeatmap = ({ submissionCalendar }) => {
             {/* Manual Grid Heatmap */}
             <div className="p-2 rounded-lg border border-[var(--border-color)] dark:border-[#30363d] w-full bg-[var(--bg-secondary)] overflow-x-auto custom-scrollbar">
                 {/* Full Width Container - Min width to ensure it doesn't squash */}
-                <div className="min-w-[700px] flex justify-between items-end">
+                <div className="min-w-[700px] flex justify-start gap-4 items-end">
                     {monthBlocks.map((month, mIdx) => (
                         <div key={mIdx} className="flex flex-col gap-1 items-center">
                             {/* Weeks Grid */}
