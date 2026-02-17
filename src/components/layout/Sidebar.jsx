@@ -1,10 +1,13 @@
 import React from 'react';
 import { Terminal, Activity, Server, Database, Cpu, Shield, Wifi } from 'lucide-react';
 
+import soundManager from '../../utils/SoundManager';
+
 const NavItem = ({ sectionId, label, icon: Icon, status = 'online' }) => {
     const scrollToSection = () => {
         const element = document.getElementById(sectionId);
         if (element) {
+            soundManager.playClick();
             element.scrollIntoView({ behavior: 'smooth' });
         }
     };
@@ -12,6 +15,7 @@ const NavItem = ({ sectionId, label, icon: Icon, status = 'online' }) => {
     return (
         <button
             onClick={scrollToSection}
+            onMouseEnter={() => soundManager.playHover()}
             className="w-full flex items-center justify-between px-4 py-3 border-l-2 border-transparent text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-color)] transition-all group text-left"
             title={`Go to ${label}`}
         >
