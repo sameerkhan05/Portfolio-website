@@ -165,7 +165,7 @@ const LeetCodeHeatmap = ({ submissionCalendar }) => {
             {/* Manual Grid Heatmap */}
             <div className="p-2 rounded-lg border border-[var(--border-color)] dark:border-[#30363d] w-full bg-[var(--bg-secondary)] overflow-x-auto custom-scrollbar">
                 {/* Full Width Container - Min width to ensure it doesn't squash */}
-                <div className="min-w-[700px] flex justify-between items-end">
+                <div className="min-w-[700px] flex justify-start gap-4 md:justify-between md:gap-0 items-end">
                     {monthBlocks.map((month, mIdx) => (
                         <div key={mIdx} className="flex flex-col gap-1 items-center">
                             {/* Weeks Grid */}
