@@ -145,18 +145,17 @@ const LeetCodeHeatmap = ({ submissionCalendar }) => {
                     >
                         {selectedYear} <ChevronDown size={10} className={`transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
                     </button>
-                    {isDropdownOpen && (
-                        <div className="absolute right-0 top-full mt-1 w-24 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-md shadow-lg z-[60]">
-                            {['Current', '2026', '2025'].map(year => (
-                                <button
-                                    key={year}
-                                    onClick={() => { setSelectedYear(year); setIsDropdownOpen(false); }}
-                                    className="block w-full text-left px-3 py-2 text-[10px] text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] hover:text-[var(--text-primary)] transition-colors"
-                                >
-                                    {year}
-                                </button>
-                            ))}
-                        </div>
+                    <div className="absolute left-0 md:left-auto md:right-0 top-full mt-1 w-24 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-md shadow-lg z-[60]">
+                        {['Current', '2026', '2025'].map(year => (
+                            <button
+                                key={year}
+                                onClick={() => { setSelectedYear(year); setIsDropdownOpen(false); }}
+                                className="block w-full text-left px-3 py-2 text-[10px] text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] hover:text-[var(--text-primary)] transition-colors"
+                            >
+                                {year}
+                            </button>
+                        ))}
+                    </div>
                     )}
                 </div>
             </div>
