@@ -4,6 +4,7 @@ import { Terminal, ChevronRight, Play, ArrowRight, Server, Cpu } from 'lucide-re
 import { HERO_CONTENT } from '../../constants';
 import VisitorBadge from './VisitorBadge';
 import Journey from './Journey';
+import soundManager from '../../utils/SoundManager';
 
 const Hero = () => {
     const [text, setText] = useState('');
@@ -88,7 +89,11 @@ const Hero = () => {
                         <div className="flex flex-wrap gap-3 md:gap-4">
                             <button
                                 className="bg-[var(--text-primary)] text-[var(--bg-primary)] px-4 py-2 md:px-6 md:py-3 text-sm md:text-base font-mono font-bold flex items-center gap-2 hover:bg-[var(--accent-color)] hover:text-white transition-all group"
-                                onClick={() => document.getElementById('active-services').scrollIntoView({ behavior: 'smooth' })}
+                                onClick={() => {
+                                    soundManager.playClick();
+                                    document.getElementById('active-services').scrollIntoView({ behavior: 'smooth' });
+                                }}
+                                onMouseEnter={() => soundManager.playHover()}
                             >
                                 <Terminal size={14} md:size={18} />
                                 ./projects.sh
@@ -96,7 +101,11 @@ const Hero = () => {
                             </button>
 
                             <button
-                                onClick={() => setShowJourney(true)}
+                                onClick={() => {
+                                    soundManager.playClick();
+                                    setShowJourney(true);
+                                }}
+                                onMouseEnter={() => soundManager.playHover()}
                                 className="border border-[var(--border-color)] text-[var(--text-secondary)] px-4 py-2 md:px-6 md:py-3 text-sm md:text-base font-mono flex items-center gap-2 hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] transition-all"
                             >
                                 <Play size={14} md:size={18} />
