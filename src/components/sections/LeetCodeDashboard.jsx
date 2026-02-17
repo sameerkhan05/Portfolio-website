@@ -31,12 +31,33 @@ const LeetCodeDashboard = () => {
                     totalHard: 800,
                     acceptanceRate: 68.5,
                     ranking: 12403,
-                    status: 'fallback'
+                    status: 'fallback',
+                    submissionCalendar: generateMockSubmissionCalendar()
                 });
                 setError(true);
             } finally {
                 setLoading(false);
             }
+        };
+
+        const generateMockSubmissionCalendar = () => {
+            const calendar = {};
+            const today = new Date();
+            // Generate valid data for past 365 days
+            for (let i = 0; i < 365; i++) {
+                const date = new Date(today);
+                date.setDate(date.getDate() - i);
+
+                // Randomize: 60% chance of 0, else 1-5 submissions
+                // Higher chance on weekends? Maybe just simple random for now
+                const rand = Math.random();
+                if (rand > 0.6) {
+                    // Create timestamp in seconds
+                    const timestamp = Math.floor(date.getTime() / 1000);
+                    calendar[timestamp] = Math.ceil(Math.random() * 5);
+                }
+            }
+            return calendar;
         };
 
         fetchStats();
