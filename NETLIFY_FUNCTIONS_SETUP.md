@@ -29,11 +29,11 @@ You need to add your email credentials to Netlify:
 
 **Variable 1:**
 - Key: `EMAIL_USER`
-- Value: `mhod.naseemkhan0123@gmail.com`
+- Value: email
 
 **Variable 2:**
 - Key: `EMAIL_PASS`
-- Value: `mfuujrblvvnvfnaz`
+- Value: `16digit pass`
 
 4. Click **"Save"**
 
