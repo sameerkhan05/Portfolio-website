@@ -116,7 +116,11 @@ const ContactForm = () => {
                     <span className="text-[var(--text-primary)] truncate">https://api.portfolio.com/v1/contact/send</span>
                 </div>
                 <button
-                    onClick={handleSubmit}
+                    onClick={(e) => {
+                        if (status !== 'sending') soundManager.playClick();
+                        handleSubmit(e);
+                    }}
+                    onMouseEnter={() => status !== 'sending' && soundManager.playHover()}
                     disabled={status === 'sending'}
                     className="bg-[var(--accent-color)] hover:bg-orange-600 text-white font-bold h-8 md:h-10 px-3 md:px-6 rounded flex items-center justify-center gap-2 font-mono transition-colors disabled:opacity-50 disabled:cursor-not-allowed shrink-0 text-xs md:text-base"
                 >
