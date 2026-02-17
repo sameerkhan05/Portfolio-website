@@ -8,6 +8,8 @@ import { useTheme } from '../../context/ThemeContext';
 
 import { containsProfanity } from '../../utils/badwords';
 
+import soundManager from '../../utils/SoundManager';
+
 const ContactForm = () => {
     const { theme } = useTheme();
     const [formData, setFormData] = useState({
